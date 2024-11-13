@@ -9,7 +9,7 @@ namespace Topic_7____While_loops
         {
             Random generator = new Random();
             int pin = 12345;
-            int entry, randNum, guess;
+            int entry, randNum, guess, dice1, dice2;
             randNum = generator.Next(10);
             Console.WriteLine("WELCOME TO THE BANK OF ALDWORTH.");
             Console.Write("ENTER YOUR PIN: ");
@@ -35,15 +35,37 @@ namespace Topic_7____While_loops
             Console.WriteLine("Good luck");
             Console.Write("Enter your answer here: ");
             Int32.TryParse(Console.ReadLine(), out guess);
-            if (guess == randNum)
+            Console.WriteLine();
+            while (guess != randNum)
             {
-                Console.WriteLine("Yea man good job you got it, it was: " + randNum);
-
+                Console.WriteLine("INCORRECT TRY AGAIN!");
+                if (guess < randNum)
+                    Console.WriteLine("Its a little higher");
+                else
+                {
+                    Console.WriteLine("Its a little lower");
+                }
+                Console.Write("Enter your answer here: ");
+                Int32.TryParse(Console.ReadLine(), out guess);
+                Console.WriteLine();
             }
-            else
-            {
-                Console.WriteLine("No you're wrong the answer was: " + randNum);
-            }
+            Console.WriteLine("NO WAY GOOD JOB IT WAS " + randNum);
+            Console.WriteLine("Press Enter to continue");
+            Console.ReadLine();
+            Console.Clear();
+            dice1 = generator.Next(1, 7);
+            dice2 = generator.Next(1, 7);
+            Console.WriteLine("Ok i am going to roll 2 die untill they are the same and tell you what they were aswell as adding them together.");
+            Console.WriteLine("Time to roll the die");
+            Thread.Sleep(1000);
+            Console.Write("Here is what you rolled: ");
+            Console.Write(dice1 + " " + dice2 + " ");
+            Thread.Sleep(1000);
+            Console.WriteLine();
+            Console.Write("Now i'm going to add them together: ");
+            Thread.Sleep(1000);
+            Console.WriteLine(dice1 + dice2);
+            Console.ReadLine();
         }
     }
 }
